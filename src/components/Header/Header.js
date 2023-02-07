@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { signOut } from '../../services/auth.js';
 
@@ -9,7 +8,6 @@ export default function Header() {
     try {
       await signOut();
       setUser(null);
-      //   return <Redirect to="/auth/sign-in" />;
     } catch (e) {
       console.error(e.message);
     }

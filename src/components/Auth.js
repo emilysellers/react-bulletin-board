@@ -15,7 +15,6 @@ export default function Auth() {
   const submitAuth = async () => {
     try {
       const newUser = await authUser(email, password, type);
-      console.log(newUser);
       setUser(newUser);
     } catch (e) {
       console.error(e);
