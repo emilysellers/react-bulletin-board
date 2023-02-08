@@ -1,0 +1,15 @@
+.bulletin-card {
+  color: rgb(48, 48, 48);
+  background-color: rgb(190, 252, 249);
+  height: 10em;
+  width: 10em;
+  padding: 1em;
+  box-shadow: 5px 5px 7px 0 rgba(34, 34, 34, 0.744);
+  margin: 10px;
+}
+
+.bulletin-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
