@@ -1,6 +1,7 @@
 import React from 'react';
 import { useUser } from '../../context/UserContext.js';
 import { signOut } from '../../services/auth.js';
+import './Header.css';
 
 export default function Header() {
   const { user, setUser } = useUser();
@@ -13,7 +14,7 @@ export default function Header() {
     }
   };
   return (
-    <div>
+    <div className="header">
       <h1>Community Bulletin Board</h1>
       {user && (
         <>

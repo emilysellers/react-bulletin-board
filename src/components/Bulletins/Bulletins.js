@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { useBulletins } from '../../hooks/UseBulletins.js';
+import BulletinCard from './BulletinCard.js';
+import './Bulletins.css';
 
 export default function Bulletins() {
   const { user } = useUser();
@@ -15,12 +17,9 @@ export default function Bulletins() {
   }
 
   return (
-    <div>
+    <div className="bulletin-board">
       {bulletins.map((bulletin) => (
-        <div key={bulletin.id}>
-          <h2>{bulletin.title}</h2>
-          <p>{bulletin.description}</p>
-        </div>
+        <BulletinCard key={bulletin.id} title={bulletin.title} description={bulletin.description} />
       ))}
     </div>
   );
