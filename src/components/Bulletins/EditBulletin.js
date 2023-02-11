@@ -1,17 +1,27 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useBulletin } from '../../hooks/UseBulletin.js';
+import { updateBulletin } from '../../services/bulletins.js';
 import BulletinForm from './BulletinForm.js';
 
 export default function EditBulletin() {
   const { id } = useParams();
-  const { bulletinDetail, loading, error } = useBulletin(id);
-  if (loading) return <h1>Loading...</h1>;
+  const history = useHistory();
+  const { bulletinDetail, loading, error, setError } = useBulletin(id);
+
+  if (loading || !bulletinDetail) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
 
-  return (
-    <div>
-      <BulletinForm {...bulletinDetail} />
-    </div>
-  );
+  console.log('in EditBulletin bulletinDetail======', bulletinDetail);
+
+  const handleSubmit = async (title, description) => {
+    try {
+      await updateBulletin(id, title, description);
+      history.push('/bulletins');
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
+  return <BulletinForm {...bulletinDetail} submitHandler={handleSubmit} />;
 }

@@ -10,6 +10,7 @@ export function useBulletin(id) {
     const fetchData = async () => {
       try {
         const data = await getBulletinDetail(id);
+        console.log('in useBulletin useEffect data', data);
         setBulletinDetail(data);
         setLoading(false);
       } catch (e) {
@@ -18,6 +19,7 @@ export function useBulletin(id) {
       }
     };
     fetchData();
+    console.log('in useBulletin useEffect bulletinDetail', bulletinDetail);
   }, [id]);
-  return { bulletinDetail, loading, error };
+  return { bulletinDetail, loading, error, setError };
 }
