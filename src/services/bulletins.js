@@ -7,7 +7,7 @@ export async function getBulletins() {
 
 export async function getBulletinDetail(id) {
   const resp = await client.from('bulletins').select('*').match({ id });
-  console.log('==services resp', resp);
+  // console.log('=== services getBulletinDetail resp', resp);
   return checkError(resp);
 }
 

@@ -12,7 +12,7 @@ export default function EditBulletin() {
   if (loading || !bulletinDetail) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
 
-  console.log('in EditBulletin bulletinDetail======', bulletinDetail);
+  // console.log('=== in EditBulletin bulletinDetail', bulletinDetail);
 
   const handleSubmit = async (title, description) => {
     try {
@@ -23,5 +23,11 @@ export default function EditBulletin() {
     }
   };
 
-  return <BulletinForm {...bulletinDetail} submitHandler={handleSubmit} />;
+  return (
+    <BulletinForm
+      title={bulletinDetail[0].title}
+      description={bulletinDetail[0].description}
+      submitHandler={handleSubmit}
+    />
+  );
 }
