@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useUser } from '../context/UserContext.js';
 import { authUser } from '../services/auth.js';
+import './Auth.css';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
@@ -22,11 +23,13 @@ export default function Auth() {
   };
 
   return (
-    <div>
-      <p>Welcome! Please sign in or sign up</p>
+    <div className="auth-form">
       <div>
-        <NavLink to="/auth/sign-in">Sign in</NavLink>
-        <NavLink to="/auth/sign-up">Sign up</NavLink>
+        <p>Welcome! Please sign in.</p>
+        <div className="auth-links">
+          <NavLink to="/auth/sign-in">Sign in</NavLink>
+          <NavLink to="/auth/sign-up">Sign up</NavLink>
+        </div>
       </div>
       <label>Email</label>
       <input

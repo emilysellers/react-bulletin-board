@@ -1,14 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { signOut } from '../../services/auth.js';
 import './Header.css';
 
 export default function Header() {
   const { user, setUser } = useUser();
+  const history = useHistory();
   const handleLogOut = async () => {
     try {
       await signOut();
       setUser(null);
+      history.push('/auth/sign-in');
     } catch (e) {
       console.error(e.message);
     }
