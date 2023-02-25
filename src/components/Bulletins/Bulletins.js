@@ -19,7 +19,8 @@ export default function Bulletins() {
   return (
     <div className="bulletin-board">
       {bulletins.map((bulletin) => (
-        <BulletinCard key={bulletin.id} title={bulletin.title} description={bulletin.description} />
+        // <BulletinCard key={bulletin.id} title={bulletin.title} description={bulletin.description} />
+        <BulletinCard key={bulletin.id} {...bulletin} />
       ))}
     </div>
   );
