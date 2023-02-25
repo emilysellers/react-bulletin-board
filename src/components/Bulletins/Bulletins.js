@@ -15,7 +15,6 @@ export default function Bulletins() {
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
-  console.log(bulletins);
 
   return (
     <div className="bulletin-board">

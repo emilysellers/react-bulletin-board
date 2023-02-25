@@ -12,8 +12,6 @@ export default function EditBulletin() {
   if (loading || !bulletinDetail) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
 
-  // console.log('=== in EditBulletin bulletinDetail', bulletinDetail);
-
   const handleSubmit = async (title, description) => {
     try {
       await updateBulletin(id, title, description);

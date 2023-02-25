@@ -12,8 +12,6 @@ export default function BulletinForm({ title = '', description = '', submitHandl
     setDescInput(description);
   }, [title, description]);
 
-  // console.log('=== BulletinForm title prop: ', title);
-
   return (
     <div className="bulletin-form">
       <label>Title</label>
