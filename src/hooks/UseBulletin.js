@@ -11,7 +11,6 @@ export function useBulletin(id) {
       try {
         const data = await getBulletinDetail(id);
         setBulletinDetail(data);
-        // console.log('in useBulletin useEffect data', data);
         setLoading(false);
       } catch (e) {
         setError(e.message);
@@ -19,7 +18,6 @@ export function useBulletin(id) {
       }
     };
     fetchData();
-    // console.log('in useBulletin useEffect bulletinDetail', bulletinDetail);
   }, [id]);
   return { bulletinDetail, loading, error, setError };
 }

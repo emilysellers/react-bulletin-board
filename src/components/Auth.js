@@ -7,6 +7,7 @@ import './Auth.css';
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const { type } = useParams();
   const { user, setUser } = useUser();
   if (user) {
@@ -19,6 +20,7 @@ export default function Auth() {
       setUser(newUser);
     } catch (e) {
       console.error(e);
+      setError(e.message);
     }
   };
 
@@ -31,6 +33,7 @@ export default function Auth() {
           <NavLink to="/auth/sign-up">Sign up</NavLink>
         </div>
       </div>
+      <div style={{ color: 'red' }}>{error}</div>
       <label>Email</label>
       <input
         type="email"
